@@ -192,7 +192,14 @@ int main(){
 				break;
 			}//FIN CASE 4
 			case 5:{
-				
+				cout<<"\n";
+				cout<<"Listando..."<<endl;
+				cout<<"\n";
+				for (int i = 0; i < mesas.size(); i++)
+				{
+					mesas[i]->listar();
+					cout<<"\n";
+				}
 				break;
 			}//FIN CASE 6
 			case 6:{
@@ -213,7 +220,7 @@ int menu() {
 		<< "2.- Autenticacion" << endl
 		<< "3.- Jugar Blackjack" << endl
 		<< "4.- Listar Personas" << endl
-		<< "5.- Listar Personas" << endl
+		<< "5.- Listar Mesas" << endl
 		<< "6.- Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin>>opcion;

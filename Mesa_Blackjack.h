@@ -24,5 +24,7 @@ public:
     string getTipo();
     void setTipo(string);
 
+    void listar();
+
 };
 #endif

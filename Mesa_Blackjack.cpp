@@ -21,3 +21,10 @@ void Mesa_Blackjack::setTipo(string tipo){
 string Mesa_Blackjack::getTipo(){
 	return tipo;
 }
+void Mesa_Blackjack::listar(){
+	cout<<"Mesa"<<endl;
+	cout<<"Numero: "<<numero<<endl;
+	cout<<"Tipo: "<<tipo<<endl;
+	cout<<"Repartidor: "<<repartidor->getNombre()<<endl;
+	cout<<"Jugador: "<<jugador->getNombre()<<endl;
+}
