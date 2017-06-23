@@ -132,22 +132,39 @@ int main(){
 							while (!salir) {
 								switch (menuAdministrador()) {
 									case 1:{
-										bool si=true;
+										int si=0;
 										for (int i = 0; i < personas.size(); ++i)
 										{
-											
+											Repartidor* repartidor = dynamic_cast<Repartidor*>(personas[1]);
+											Jugador* jugador = dynamic_cast<Jugador*>(personas[2]);
+											if(repartidor->getEstado()=="Sin mesa"){
+												si++;
+											}
+											if(jugador->getEstado()=="Sin mesa"){
+												si++;
+											}
 										}
-										if(si==true){
+										if(si<2){
+											cout<<"No hay suficientes personas disponibles"<<endl;
+										}
+										if(si>=2){
 											int numero;
 											string tipo;
 											cout<<"Numero de mesa: ";
 											cin>>numero;
 											cout<<"Tipo de mesa: ";
 											cin>>tipo;
-											Repartidor* repartidor = dynamic_cast<Repartidor*>(personas[1]);
-											Jugador* jugador = dynamic_cast<Jugador*>(personas[2]);
+											int pos1,pos2;
+											cout<<"Posicion del repartidor: ";
+											cin>>pos1;
+											cout<<"Posicion del jugador: ";
+											cin>>pos2;
+											Repartidor* repartidor = dynamic_cast<Repartidor*>(personas[pos1]);
+											Jugador* jugador = dynamic_cast<Jugador*>(personas[pos2]);
 											Mesa_Blackjack* mesa = new Mesa_Blackjack(numero,tipo,repartidor,jugador);
-											mesas.push_back(mesa);											
+											mesas.push_back(mesa);
+											repartidor->setEstado("Con mesa");
+											jugador->setEstado("Con mesa");													
 										}
 										break;
 									}//fin case 1
