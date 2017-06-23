@@ -24,7 +24,7 @@ int main(){
 	Persona* def_admin = new Administrador("El_Admin",30,"1234",5,"Gerente Tiempo Completo",20000);
 	personas.push_back(def_admin);
 	//Repartidor por defecto
-	Persona* def_repartidor = new Repartidor("El_Repartidor",25,"5678","Intermedio",30000,generador_Barajas());
+	Persona* def_repartidor = new Repartidor("El_Repartidor",25,"5678","Intermedio",30000,generador_Barajas(),"Sin mesa");
 	personas.push_back(def_repartidor);
 	//Jugador por defecto
 	Persona* def_jugador = new Jugador("El_Jugador",35,"9012","New Vegas","The_Gambler",40000,"Sin mesa");
@@ -74,7 +74,7 @@ int main(){
 						cin>>dificultad;
 						cout<<"Ingrese dinero del repartidor: "<<endl;
 						cin>>dinero;
-						Persona* repartidor = new Repartidor(nombre,edad,numero_id,dificultad,dinero,generador_Barajas());
+						Persona* repartidor = new Repartidor(nombre,edad,numero_id,dificultad,dinero,generador_Barajas(),"Sin mesa");
 						personas.push_back(repartidor);
 						break;
 					}//Fin Case 2 agregar
@@ -132,14 +132,11 @@ int main(){
 							while (!salir) {
 								switch (menuAdministrador()) {
 									case 1:{
-										
 										bool si=true;
-										/*
-										for (int i = 0; i < personas; ++i)
+										for (int i = 0; i < personas.size(); ++i)
 										{
 											
 										}
-										*/
 										if(si==true){
 											int numero;
 											string tipo;
@@ -159,7 +156,10 @@ int main(){
 										break;
 									}//fin case 2
 									case 3:{
-										
+										int pos;
+										cout<<"Ingrese la posicion de la mesa que desea eliminar: "<<endl;
+										cin>>pos;
+										mesas.erase(mesas.begin()+pos);
 										break;
 									}//fin case 3
 									case 4:{
@@ -261,7 +261,7 @@ int menuAdministrador() {
 		cout << "-----MENU ADMINISTRADOR-----" << endl
 		<< "1.- Crear Mesa" << endl
 		<< "2.- Modificar Mesa" << endl
-		<< "3.- Eliminar Eliminar" << endl
+		<< "3.- Eliminar Mesa" << endl
 		<< "4.- Log out" << endl;
 		cout << "Ingrese una opcion: ";
 		cin>>opcion;

@@ -13,8 +13,9 @@ protected:
     string dificultad;
     int dinero;
     Baraja baraja;
+    string estado;
 public:
-    Repartidor(string,int,string,string,int,Baraja);
+    Repartidor(string,int,string,string,int,Baraja,string);
     Repartidor();
 
     string getDificultad();
@@ -22,6 +23,9 @@ public:
 
     int getDinero();
     void setDinero(int);
+
+    string getEstado();
+    void setEstado(string);
 
     void mostrar();
 };

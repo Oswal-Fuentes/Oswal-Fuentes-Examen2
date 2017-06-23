@@ -41,5 +41,6 @@ void Jugador::mostrar(){
 	Persona::mostrar();
 	cout<<"Procedencia: "<<procedencia<<endl;
 	cout<<"Apodo: "<<apodo<<endl;
-	cout<<"Dinero: "<<dinero<<endl;	
+	cout<<"Dinero: "<<dinero<<endl;
+	cout<<"Estado: "<<estado<<endl;
 }
