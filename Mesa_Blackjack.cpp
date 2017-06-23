@@ -1,8 +1,10 @@
 #include "Mesa_Blackjack.h"
 
-Mesa_Blackjack::Mesa_Blackjack(int numero,string tipo){
+Mesa_Blackjack::Mesa_Blackjack(int numero,string tipo,Repartidor* repartidor,Jugador* jugador){
 	this->numero=numero;
 	this->tipo=tipo;
+	this->repartidor=repartidor;
+	this->jugador=jugador;	
 }
 Mesa_Blackjack::Mesa_Blackjack(){
 

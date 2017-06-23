@@ -133,6 +133,25 @@ int main(){
 								switch (menuAdministrador()) {
 									case 1:{
 										
+										bool si=true;
+										/*
+										for (int i = 0; i < personas; ++i)
+										{
+											
+										}
+										*/
+										if(si==true){
+											int numero;
+											string tipo;
+											cout<<"Numero de mesa: ";
+											cin>>numero;
+											cout<<"Tipo de mesa: ";
+											cin>>tipo;
+											Repartidor* repartidor = dynamic_cast<Repartidor*>(personas[1]);
+											Jugador* jugador = dynamic_cast<Jugador*>(personas[2]);
+											Mesa_Blackjack* mesa = new Mesa_Blackjack(numero,tipo,repartidor,jugador);
+											mesas.push_back(mesa);											
+										}
 										break;
 									}//fin case 1
 									case 2:{
@@ -173,9 +192,13 @@ int main(){
 				break;
 			}//FIN CASE 4
 			case 5:{
+				
+				break;
+			}//FIN CASE 6
+			case 6:{
 				salir=true;
 				break;
-			}//FIN CASE 5
+			}//FIN CASE 6
 			return 0;
 		}//Fin swtich
 	}//Fin While
@@ -190,10 +213,11 @@ int menu() {
 		<< "2.- Autenticacion" << endl
 		<< "3.- Jugar Blackjack" << endl
 		<< "4.- Listar Personas" << endl
-		<< "5.- Salir" << endl;
+		<< "5.- Listar Personas" << endl
+		<< "6.- Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin>>opcion;
-		if (opcion > 0 && opcion <= 5)
+		if (opcion > 0 && opcion <= 6)
 			valido = true;
 		else {
 			cout << "Opcion no valida, intente de nuevo..." << endl;

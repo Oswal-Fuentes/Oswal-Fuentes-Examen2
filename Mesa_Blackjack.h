@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include "Repartidor.h"
+#include "Jugador.h"
 
 using namespace std;
 
@@ -10,10 +12,12 @@ class Mesa_Blackjack{
 protected:
     int numero;
     string tipo;
+    Repartidor* repartidor;
+    Jugador* jugador;
 public:
-    Mesa_Blackjack(int,string);
+    Mesa_Blackjack(int,string,Repartidor*,Jugador*);
     Mesa_Blackjack();
-    
+
     int getNumero();
     void setNumero(int);
 
