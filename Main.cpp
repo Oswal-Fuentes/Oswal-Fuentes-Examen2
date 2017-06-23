@@ -19,6 +19,7 @@ Baraja generador_Barajas();
 
 int main(){
 	vector<Persona*>personas;
+	vector<Mesa_Blackjack*>mesas;
 	//Admin por defecto
 	Persona* def_admin = new Administrador("El_Admin",30,"1234",5,"Gerente Tiempo Completo",20000);
 	personas.push_back(def_admin);
