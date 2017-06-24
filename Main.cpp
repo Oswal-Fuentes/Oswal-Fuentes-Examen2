@@ -221,17 +221,13 @@ int main(){
 							}
 						}
 						if(tipo==2){
-
+							
 						}
 					}	
 				}
 				break;
 			}//FIN CASE 2
 			case 3:{
-
-				break;
-			}//FIN CASE 3
-			case 4:{
 				cout<<"\n";
 				cout<<"Listando..."<<endl;
 				cout<<"\n";
@@ -241,8 +237,8 @@ int main(){
 					cout<<"\n";
 				}
 				break;
-			}//FIN CASE 4
-			case 5:{
+			}//FIN CASE 3
+			case 4:{
 				cout<<"\n";
 				cout<<"Listando..."<<endl;
 				cout<<"\n";
@@ -252,11 +248,11 @@ int main(){
 					cout<<"\n";
 				}
 				break;
-			}//FIN CASE 6
-			case 6:{
+			}//FIN CASE 4
+			case 5:{
 				salir=true;
 				break;
-			}//FIN CASE 6
+			}//FIN CASE 5
 			return 0;
 		}//Fin swtich
 	}//Fin While
@@ -269,13 +265,12 @@ int menu() {
 		cout << "-----MENU-----" << endl
 		<< "1.- Agregar Personas" << endl
 		<< "2.- Autenticacion" << endl
-		<< "3.- Jugar Blackjack" << endl
-		<< "4.- Listar Personas" << endl
-		<< "5.- Listar Mesas" << endl
-		<< "6.- Salir" << endl;
+		<< "3.- Listar Personas" << endl
+		<< "4.- Listar Mesas" << endl
+		<< "5.- Salir" << endl;
 		cout << "Ingrese una opcion: ";
 		cin>>opcion;
-		if (opcion > 0 && opcion <= 6)
+		if (opcion > 0 && opcion <= 5)
 			valido = true;
 		else {
 			cout << "Opcion no valida, intente de nuevo..." << endl;
