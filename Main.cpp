@@ -175,7 +175,30 @@ int main(){
 									case 2:{
 										//mod
 										if(mesas.size()>=1){
-											
+											int pos;
+											cout<<"Ingrese la posicion de la mesa que desea modificar: "<<endl;
+											cin>>pos;
+											mesas[pos]->getRepartidor()->setEstado("Sin mesa");
+											mesas[pos]->getJugador()->setEstado("Sin mesa");
+											int numero;
+											string tipo;
+											cout<<"Nuevo numero de mesa: ";
+											cin>>numero;
+											cout<<"Nuevo tipo de mesa: ";
+											cin>>tipo;
+											int pos1,pos2;
+											cout<<"Posicion del repartidor: ";
+											cin>>pos1;
+											cout<<"Posicion del jugador: ";
+											cin>>pos2;
+											mesas[pos]->setNumero(numero);
+											mesas[pos]->setTipo(tipo);
+											Repartidor* repartidor = dynamic_cast<Repartidor*>(personas[pos1]);
+											Jugador* jugador = dynamic_cast<Jugador*>(personas[pos2]);
+											mesas[pos]->setRepartidor(repartidor);
+											mesas[pos]->setJugador(jugador);
+											repartidor->setEstado("Con mesa");
+											jugador->setEstado("Con mesa");	
 										}else{
 											cout<<"No hay mesas creadas. No puede modificar"<<endl;
 										}
