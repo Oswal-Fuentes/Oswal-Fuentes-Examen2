@@ -132,22 +132,24 @@ int main(){
 							while (!salir) {
 								switch (menuAdministrador()) {
 									case 1:{
-										int si=0;
+										int cant_repartidores=0;
+										int cant_jugadores=0;
 										for (int i = 0; i < personas.size(); ++i)
 										{
-											Repartidor* repartidor = dynamic_cast<Repartidor*>(personas[1]);
-											Jugador* jugador = dynamic_cast<Jugador*>(personas[2]);
-											if(repartidor->getEstado()=="Sin mesa"){
-												si++;
+											if(typeid(*personas[i])==typeid(Repartidor)){
+												Repartidor* repartidor = dynamic_cast<Repartidor*>(personas[i]);
+												if(repartidor->getEstado()=="Sin mesa"){
+													cant_repartidores++;
+												}												
 											}
-											if(jugador->getEstado()=="Sin mesa"){
-												si++;
+											if(typeid(*personas[i])==typeid(Jugador)){
+												Jugador* jugador = dynamic_cast<Jugador*>(personas[i]);
+												if(jugador->getEstado()=="Sin mesa"){
+													cant_jugadores++;
+												}
 											}
 										}
-										if(si<2){
-											cout<<"No hay suficientes personas disponibles"<<endl;
-										}
-										if(si>=2){
+										if((cant_repartidores>=1)&&(cant_jugadores>=1)){
 											int numero;
 											string tipo;
 											cout<<"Numero de mesa: ";
@@ -165,17 +167,26 @@ int main(){
 											mesas.push_back(mesa);
 											repartidor->setEstado("Con mesa");
 											jugador->setEstado("Con mesa");													
+										}else{
+											cout<<"No hay suficientes personas disponibles"<<endl;
 										}
 										break;
 									}//fin case 1
 									case 2:{
-										
+										//mod
+										if(mesas.size()>=1){
+											
+										}else{
+											cout<<"No hay mesas creadas. No puede modificar"<<endl;
+										}
 										break;
 									}//fin case 2
 									case 3:{
 										int pos;
 										cout<<"Ingrese la posicion de la mesa que desea eliminar: "<<endl;
 										cin>>pos;
+										mesas[pos]->getRepartidor()->setEstado("Sin mesa");
+										mesas[pos]->getJugador()->setEstado("Sin mesa");
 										mesas.erase(mesas.begin()+pos);
 										break;
 									}//fin case 3

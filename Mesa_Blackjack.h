@@ -24,6 +24,12 @@ public:
     string getTipo();
     void setTipo(string);
 
+    Repartidor* getRepartidor();
+    void setRepartidor(Repartidor*);
+
+    Jugador* getJugador();
+    void setJugador(Jugador*);
+
     void listar();
 
 };
